@@ -1,9 +1,9 @@
 package com.tylercmarshall.FinalExamProjects;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 /**
  * Created by Tyler on 4/12/2014.
@@ -26,6 +26,8 @@ public class Interface extends JPanel implements ActionListener {
     private JButton confirmSelection;
     //End JButtons
 
+    //Color Varialbe
+    Color bg = new Color(0x5995B3);
 
     /**
      * interface
@@ -90,7 +92,6 @@ public class Interface extends JPanel implements ActionListener {
         centerPanel.add(guiRB);
         centerPanel.add(linkedListRB);
         centerPanel.add(fileRB);
-        centerPanel.add(linkedListRB);
         centerPanel.add(listenersRB);
         centerPanel.add(recursiveRB);
         centerPanel.add(stackRB);
@@ -100,10 +101,21 @@ public class Interface extends JPanel implements ActionListener {
         southPanel.add(confirmSelection);
         //End Adding
 
+
         //Adding JPanels to interface
         add(centerPanel, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);
         //End Adding
+
+        //Sets Background colour to BG
+        guiRB.setBackground(bg);
+        linkedListRB.setBackground(bg);
+        fileRB.setBackground(bg);
+        listenersRB.setBackground(bg);
+        recursiveRB.setBackground(bg);
+        stackRB.setBackground(bg);
+        southPanel.setBackground(bg);
+        //End Settings
 
     }//End Interface Constructor
 
@@ -136,7 +148,7 @@ public class Interface extends JPanel implements ActionListener {
         frame.add(inter);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 600);
+        frame.setSize(400, 300);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         //End Frame settings
