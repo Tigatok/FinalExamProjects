@@ -77,6 +77,15 @@ public class Interface extends JPanel implements ActionListener {
         buttonGroup1.add(stackRB);
         //End Adding
 
+        //Aligns the JRadioButtons to the center of each Cell
+        guiRB.setHorizontalAlignment(AbstractButton.CENTER);
+        linkedListRB.setHorizontalAlignment(AbstractButton.CENTER);
+        fileRB.setHorizontalAlignment(AbstractButton.CENTER);
+        listenersRB.setHorizontalAlignment(AbstractButton.CENTER);
+        recursiveRB.setHorizontalAlignment(AbstractButton.CENTER);
+        stackRB.setHorizontalAlignment(AbstractButton.CENTER);
+        //End Alignment
+
         //Adding JRadioButtons to centerPanel
         centerPanel.add(guiRB);
         centerPanel.add(linkedListRB);
@@ -127,7 +136,7 @@ public class Interface extends JPanel implements ActionListener {
         frame.add(inter);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 800);
+        frame.setSize(600, 600);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         //End Frame settings
