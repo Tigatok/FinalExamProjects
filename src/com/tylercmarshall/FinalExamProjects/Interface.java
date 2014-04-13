@@ -12,27 +12,35 @@ import java.awt.event.ActionListener;
 public class Interface extends JPanel implements ActionListener {
 
     private static final long serialVersionUID = 42L;
-    //Color Varialbe
+    //Color Variables
     Color bg = new Color(0x5995B3);
+    //End Color Variables
+
     //Declaring the JRadioButtons for the selection
     private JRadioButton guiRB;
     private JRadioButton linkedListRB;
     private JRadioButton fileRB;
     private JRadioButton listenersRB;
     private JRadioButton recursiveRB;
-    //End JRadioButtons
     private JRadioButton stackRB;
+    //End JRadioButtons
+
     //Declaring Class variables
     private GuiExample gui;
     private LinkedListExample linkedList;
     private FileReaderExample file;
     private ListenerExample listener;
     private RecursiveExample recursive;
-    //End Class Variables
     private StackExample stack;
-    //End JButtons
+    //End Class Variables
+
     //Declares the JButtons
     private JButton confirmSelection;
+    //End JButtons
+
+    //Declares the JLabels
+    static JLabel output = new JLabel("Please make a selection!");
+    //End JLables
 
     /**
      * interface
@@ -62,8 +70,8 @@ public class Interface extends JPanel implements ActionListener {
         linkedListRB = new JRadioButton("Linked List Example");
         fileRB = new JRadioButton("File I/O Example");
         listenersRB = new JRadioButton("Listeners Example");
-        recursiveRB = new JRadioButton("Recursive Examples");
-        stackRB = new JRadioButton("Stack Examples");
+        recursiveRB = new JRadioButton("Recursive Example");
+        stackRB = new JRadioButton("Stack Example");
         //End JRadioButtons Instantiations
 
         //JButton Instantiations
@@ -106,10 +114,14 @@ public class Interface extends JPanel implements ActionListener {
         southPanel.add(confirmSelection);
         //End Adding
 
+        //Adding JLabels to southPanel
+        northPanel.add(output);
+        //End Adding
 
         //Adding JPanels to interface
         add(centerPanel, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);
+        add(northPanel, BorderLayout.NORTH);
         //End Adding
 
         //Sets Background colour to BG
@@ -119,7 +131,9 @@ public class Interface extends JPanel implements ActionListener {
         listenersRB.setBackground(bg);
         recursiveRB.setBackground(bg);
         stackRB.setBackground(bg);
+
         southPanel.setBackground(bg);
+        northPanel.setBackground(bg);
         //End Settings
 
         //Listener Settings
@@ -135,8 +149,51 @@ public class Interface extends JPanel implements ActionListener {
     }//End Interface Constructor
 
     /**
-     *main
-     *  @description Creates the JFrame
+     *
+     * @description ActionPerformed method
+     *  Handles all of the actions within the JFrame
+     */
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+
+        /**
+         * Method checks to see which radio button is selected
+         * Instantiates a new object of that class when
+         * the confirm button is selected.
+         */
+        if (ae.getSource() == confirmSelection) {
+            output.setForeground(Color.BLACK);
+            if (guiRB.isSelected()) {
+                output.setText("Starting " + guiRB.getText() + "...");
+                new GuiExample();
+            } else if (linkedListRB.isSelected()) {
+                output.setText("Starting" + linkedListRB.getText() + "...");
+                new LinkedListExample();
+            } else if (fileRB.isSelected()) {
+                output.setText("Starting " + fileRB.getText() + "...");
+                new FileReaderExample();
+            } else if (listenersRB.isSelected()) {
+                output.setText("Starting " + listenersRB.getText() + "...");
+                new ListenerExample();
+            } else if (recursiveRB.isSelected()) {
+                output.setText("Starting " + recursiveRB.getText() + "...");
+                new RecursiveExample();
+            } else if (stackRB.isSelected()) {
+                output.setText("Starting " + stackRB.getText() + "...");
+                new StackExample();
+            } else {
+                output.setForeground(new Color(0xDB2121));
+                output.setText("Error: You must select to continue");
+            }
+        }//End if
+
+    }//End actionPerformed method
+
+
+    /**
+     * main
+     *
+     * @description Creates the JFrame
      */
     public static void main(String[] args) {
 
@@ -153,49 +210,11 @@ public class Interface extends JPanel implements ActionListener {
         frame.add(inter);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(450, 300);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
         //End Frame settings
-        System.out.println("test");
 
     }//End main
-
-    /**
-     *
-     * @description ActionPerformed method
-     */
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-
-        /**
-         * Method checks to see which radio button is selected
-         * Instantiates a new object of that class when
-         * the confirm button is selected.
-         */
-        if (ae.getSource() == confirmSelection) {
-            if (guiRB.isSelected()) {
-                gui = new GuiExample();
-            }
-
-            else if (linkedListRB.isSelected())
-                linkedList = new LinkedListExample();
-
-            else if (fileRB.isSelected())
-                file = new FileReaderExample();
-
-            else if (listenersRB.isSelected())
-                listener = new ListenerExample();
-
-            else if (recursiveRB.isSelected())
-                recursive = new RecursiveExample();
-
-            else if (stackRB.isSelected())
-                stack = new StackExample();
-
-            else
-                System.err.println("Error\n\tPlease make a selection!");
-        }
-
-    }
 }
