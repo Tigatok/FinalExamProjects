@@ -122,6 +122,16 @@ public class Interface extends JPanel implements ActionListener {
         southPanel.setBackground(bg);
         //End Settings
 
+        //Listener Settings
+        guiRB.addActionListener(this);
+        linkedListRB.addActionListener(this);
+        fileRB.addActionListener(this);
+        listenersRB.addActionListener(this);
+        recursiveRB.addActionListener(this);
+        stackRB.addActionListener(this);
+        confirmSelection.addActionListener(this);
+        //End Settings
+
     }//End Interface Constructor
 
     /**
@@ -147,6 +157,7 @@ public class Interface extends JPanel implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         //End Frame settings
+        System.out.println("test");
 
     }//End main
 
@@ -163,8 +174,9 @@ public class Interface extends JPanel implements ActionListener {
          * the confirm button is selected.
          */
         if (ae.getSource() == confirmSelection) {
-            if (guiRB.isSelected())
+            if (guiRB.isSelected()) {
                 gui = new GuiExample();
+            }
 
             else if (linkedListRB.isSelected())
                 linkedList = new LinkedListExample();
@@ -180,6 +192,9 @@ public class Interface extends JPanel implements ActionListener {
 
             else if (stackRB.isSelected())
                 stack = new StackExample();
+
+            else
+                System.err.println("Error\n\tPlease make a selection!");
         }
 
     }
