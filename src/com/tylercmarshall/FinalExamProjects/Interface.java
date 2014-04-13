@@ -12,31 +12,27 @@ import java.awt.event.ActionListener;
 public class Interface extends JPanel implements ActionListener {
 
     private static final long serialVersionUID = 42L;
-
+    //Color Varialbe
+    Color bg = new Color(0x5995B3);
     //Declaring the JRadioButtons for the selection
     private JRadioButton guiRB;
     private JRadioButton linkedListRB;
     private JRadioButton fileRB;
     private JRadioButton listenersRB;
     private JRadioButton recursiveRB;
-    private JRadioButton stackRB;
     //End JRadioButtons
-
+    private JRadioButton stackRB;
     //Declaring Class variables
     private GuiExample gui;
     private LinkedListExample linkedList;
     private FileReaderExample file;
     private ListenerExample listener;
     private RecursiveExample recursive;
-    private StackExample stack;
     //End Class Variables
-
+    private StackExample stack;
+    //End JButtons
     //Declares the JButtons
     private JButton confirmSelection;
-    //End JButtons
-
-    //Color Varialbe
-    Color bg = new Color(0x5995B3);
 
     /**
      * interface
@@ -128,75 +124,6 @@ public class Interface extends JPanel implements ActionListener {
 
     }//End Interface Constructor
 
-
-    /**
-     *
-     * @description ActionPerformed method
-     */
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-
-        /**
-         * Method checks to see which radio button is selected
-         * Instantiates a new object of that class when
-         * the confirm button is selected.
-         */
-        if (ae.getSource() == confirmSelection) {
-            if (guiRB.isSelected())
-                gui = new GuiExample();
-
-            else if (linkedListRB.isSelected())
-                linkedList = new LinkedListExample();
-
-            else if (fileRB.isSelected())
-                file = new FileReaderExample();
-
-            else if (listenersRB.isSelected())
-                listener = new ListenerExample();
-
-            else if (recursiveRB.isSelected())
-                recursive = new RecursiveExample();
-
-            else if (stackRB.isSelected())
-                stack = new StackExample();
-        }
-
-    }
-
-    /**
-     *
-     * @description ActionPerformed method
-     */
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-
-        /**
-         * Method checks to see which radio button is selected
-         * Instantiates a new object of that class when
-         * the confirm button is selected.
-         */
-        if (ae.getSource() == confirmSelection) {
-            if (guiRB.isSelected())
-                gui = new GuiExample();
-
-            else if (linkedListRB.isSelected())
-                linkedList = new LinkedListExample();
-
-            else if (fileRB.isSelected())
-                file = new FileReaderExample();
-
-            else if (listenersRB.isSelected())
-                listener = new ListenerExample();
-
-            else if (recursiveRB.isSelected())
-                recursive = new RecursiveExample();
-
-            else if (stackRB.isSelected())
-                stack = new StackExample();
-        }
-
-    }
-
     /**
      *main
      *  @description Creates the JFrame
@@ -222,4 +149,38 @@ public class Interface extends JPanel implements ActionListener {
         //End Frame settings
 
     }//End main
+
+    /**
+     *
+     * @description ActionPerformed method
+     */
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+
+        /**
+         * Method checks to see which radio button is selected
+         * Instantiates a new object of that class when
+         * the confirm button is selected.
+         */
+        if (ae.getSource() == confirmSelection) {
+            if (guiRB.isSelected())
+                gui = new GuiExample();
+
+            else if (linkedListRB.isSelected())
+                linkedList = new LinkedListExample();
+
+            else if (fileRB.isSelected())
+                file = new FileReaderExample();
+
+            else if (listenersRB.isSelected())
+                listener = new ListenerExample();
+
+            else if (recursiveRB.isSelected())
+                recursive = new RecursiveExample();
+
+            else if (stackRB.isSelected())
+                stack = new StackExample();
+        }
+
+    }
 }
